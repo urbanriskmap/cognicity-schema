@@ -14,8 +14,16 @@ CREATE TABLE alerts.users (
 CREATE TABLE alerts.locations (
   pkey BIGSERIAL PRIMARY KEY,
   userkey BIGINT REFERENCES alerts.users(pkey),
-  location GEOMETRY(Point,4326)
+  the_geom GEOMETRY(Point,4326)
 );
 
 -- Add a GIST spatial index
 CREATE INDEX gix_alert_locations ON alerts.locations USING gist (the_geom);
+
+-- Table to log alerts issued to users by location
+CREATE TABLE alerts.log (
+  pkey BIGSERIAL PRIMARY KEY,
+  location_key BIGSERIAL REFERENCES alerts.locations(pkey),
+  log_time TIMESTAMP WITH TIME ZONE DEFAULT now(),
+  log_metadata JSON
+);
