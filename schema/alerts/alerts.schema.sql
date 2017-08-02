@@ -4,17 +4,19 @@ CREATE schema alerts;
 -- Table for users
 CREATE TABLE alerts.users (
   pkey BIGSERIAL PRIMARY KEY,
-  username VARCHAR UNIQUE,
+  username VARCHAR,
   network VARCHAR,
   language VARCHAR,
-  subscribed BOOLEAN
+  subscribed BOOLEAN,
+  UNIQUE (username, network)
 );
 
 -- Table for user alerting locations
 CREATE TABLE alerts.locations (
   pkey BIGSERIAL PRIMARY KEY,
   userkey BIGINT REFERENCES alerts.users(pkey),
-  the_geom GEOMETRY(Point,4326)
+  the_geom GEOMETRY(Point,4326),
+  UNIQUE (userkey, the_geom)
 );
 
 -- Add a GIST spatial index
@@ -27,3 +29,22 @@ CREATE TABLE alerts.log (
   log_time TIMESTAMP WITH TIME ZONE DEFAULT now(),
   log_metadata JSON
 );
+
+-- SAMPLE DATA FOR Testing
+INSERT INTO alerts.users(username, network, language, subscribed) VALUES
+('tomas', 'twitter', 'en', TRUE);
+
+INSERT INTO alerts.users(username, network, language, subscribed) VALUES
+('adi', 'twitter', 'en', TRUE);
+
+INSERT INTO alerts.locations (userkey, the_geom) VALUES
+(1, ST_GeomFromText('POINT(1 1)',4326));
+
+INSERT INTO alerts.locations (userkey, the_geom) VALUES
+(1, ST_GeomFromText('POINT(1 2)',4326));
+
+INSERT INTO alerts.locations (userkey, the_geom) VALUES
+(2, ST_GeomFromText('POINT(1 3)',4326));
+
+INSERT INTO alerts.log (location_key, log_metadata) VALUES
+(1, '{"value":"key"}');
