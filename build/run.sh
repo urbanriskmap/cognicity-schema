@@ -29,6 +29,10 @@ psql -h $PGHOST -p $PGPORT -U $PGUSER -d $PGDATABASE -f ./data/$COUNTRY/cognicit
 psql -h $PGHOST -p $PGPORT -U $PGUSER -d $PGDATABASE -f ./schema/reports/template/template.schema.sql
 psql -h $PGHOST -p $PGPORT -U $PGUSER -d $PGDATABASE -f ./schema/reports/template/template.functions.sql
 
+# Load the alerts schema & functions
+psql -h $PGHOST -p $PGPORT -I $PGUSER -d $PGDATABASE -f ./schema/alerts/alerts.schema.sql
+psql -H $PGHOST -p $PGPOST -I $PGUSER -d $PGDATABASE -f ./schema/alerts/alerts.functions.sql
+
 # Load the twitter (grasp version) reports schema
 psql -h $PGHOST -p $PGPORT -U $PGUSER -d $PGDATABASE -f ./schema/reports/twitter/twitter.schema.sql
 
