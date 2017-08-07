@@ -7,7 +7,6 @@ CREATE TABLE alerts.users (
   username VARCHAR,
   network VARCHAR,
   language VARCHAR,
-  subscribed BOOLEAN,
   UNIQUE (username, network)
 );
 
