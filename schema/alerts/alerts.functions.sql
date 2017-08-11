@@ -5,11 +5,24 @@ CREATE OR REPLACE FUNCTION alerts.compute()
 $BODY$
 DECLARE
 alert RECORD; -- store alert location
+send_flag BOOLEAN; -- send alert flag
 BEGIN
-  -- Get any alert locations which are within range of the new report and issue a notification
-  FOR alert IN SELECT locations.pkey as location_key, locations.userkey, NEW.pkey as report_key, ST_DISTANCE(NEW.the_geom::geography, locations.the_geom::geography) as alerting_distance, locations.alert_log FROM alerts.locations WHERE ST_DWITHIN(NEW.the_geom::geography, locations.the_geom, 5000) AND locations.subscribed = TRUE
+  -- Get all data in query, and then test for conditions
+  FOR alert IN SELECT locations.pkey as location_key, locations.userkey, NEW.pkey as report_key, users.username as username, users.network as network, ST_DISTANCE(NEW.the_geom::geography, locations.the_geom::geography) AS alerting_distance, locations.alert_log FROM alerts.locations, alerts.users WHERE ST_DWITHIN(NEW.the_geom::geography, locations.the_geom, 5000) AND locations.subscribed = TRUE AND (locations.last_bubble IS NULL OR locations.last_bubble >= now() + interval '5 minutes') AND locations.userkey = users.pkey
   LOOP -- Loop locations and issue alert
-    PERFORM pg_notify('alerts', LEFT(row_to_json(alert)::text, 7999)); -- crop payload to max of 8000 bytes (UTF8 1 char = 1 byte)
+
+    send_flag := True; -- Default to send alert
+
+    -- Check that the incoming report is not from the alerting user
+    IF NEW.source = 'grasp' AND (SELECT username = alert.username AND network = alert.network FROM grasp.cards as cards, grasp.reports as reports WHERE cards.card_id  = reports.card_id AND reports.pkey = NEW.fkey)  THEN
+        send_flag := False; -- Disable self reporting - DO NOT SEND ALERT
+    END IF;
+
+    IF send_flag = True THEN
+      --INSERT INTO last_bubble
+      PERFORM pg_notify('alerts', LEFT(row_to_json(alert)::text, 7999)); -- crop payload to max of 8000 bytes (UTF8 1 char = 1 byte)
+    END IF;
+
  END LOOP;
  RETURN NEW;
 END;

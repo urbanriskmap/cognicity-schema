@@ -23,7 +23,7 @@ ALTER FUNCTION grasp.update_all_reports_from_grasp()
 
 -- Update all_reports table
 CREATE TRIGGER trigger_update_all_reports_from_grasp
-  BEFORE INSERT OR UPDATE
+  AFTER INSERT OR UPDATE
   ON grasp.reports
   FOR EACH ROW
   EXECUTE PROCEDURE grasp.update_all_reports_from_grasp();

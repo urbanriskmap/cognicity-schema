@@ -15,6 +15,7 @@ CREATE TABLE alerts.locations (
   pkey BIGSERIAL PRIMARY KEY,
   userkey BIGINT REFERENCES alerts.users(pkey),
   subscribed BOOLEAN,
+  last_bubble TIMESTAMP WITH TIME ZONE,
   alert_log JSONB,
   the_geom GEOMETRY(Point,4326),
   UNIQUE (userkey, the_geom)
