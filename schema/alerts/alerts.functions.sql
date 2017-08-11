@@ -23,6 +23,9 @@ BEGIN
       PERFORM pg_notify('alerts', LEFT(row_to_json(alert)::text, 7999)); -- crop payload to max of 8000 bytes (UTF8 1 char = 1 byte)
     END IF;
 
+    -- regardles of whether alert issued, track that this alert location recently experience report activity
+    UPDATE alerts.locations SET last_bubble = now() WHERE pkey = alert.location_key;
+
  END LOOP;
  RETURN NEW;
 END;
