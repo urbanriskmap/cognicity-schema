@@ -6,6 +6,7 @@ const pgp = require('pg-promise')({
 
 const DATABASE = process.env['PGDATABASE'];
 const COUNTRY = process.env['COUNTRY'];
+const PORT = process.env['PGPORT'];
 console.log('Testing against ' + DATABASE + ' for ' + COUNTRY);
 
 import testInstanceRegions from './testInstanceRegions.js';
@@ -20,7 +21,7 @@ import testVersion from './testVersion';
 
 let deployments = {
   'indonesia': {
-    'connection': 'postgres://postgres@localhost:5432/' + DATABASE,
+    'connection': 'postgres://postgres@localhost:' + PORT + '/' + DATABASE,
     'name': 'cognicity_indonesia',
     'instances': [
       {
@@ -38,7 +39,7 @@ let deployments = {
       {
         'name': 'Surabaya',
         'test_instance_region_code': 'sby',
-        'test_local_area_id': 'null',
+        'test_local_area_id': null,
         'test_report_lat': -7.410,
         'test_report_lon': 112.771,
         'test_report_text': 'report text',
@@ -50,7 +51,7 @@ let deployments = {
       {
         'name': 'Bandung',
         'test_instance_region_code': 'bdg',
-        'test_local_area_id': 'null',
+        'test_local_area_id': null,
         'test_report_lat': -6.930,
         'test_report_lon': 107.650,
         'test_report_text': 'report text',
@@ -62,7 +63,7 @@ let deployments = {
       {
         'name': 'Semarang',
         'test_instance_region_code': 'srg',
-        'test_local_area_id': 'null',
+        'test_local_area_id': null,
         'test_report_lat': -7.1141,
         'test_report_lon': 110.3850,
         'test_report_text': 'report text',
@@ -75,7 +76,7 @@ let deployments = {
   },
 
   'india': {
-    'connection': 'postgres://postgres@localhost:5432/' + DATABASE,
+    'connection': 'postgres://postgres@localhost:' + PORT + '/' + DATABASE,
     'name': 'cognicity_india',
     'instances': [
       {
@@ -117,7 +118,7 @@ let deployments = {
     ],
   },
   'us': {
-    'connection': 'postgres://postgres@localhost:5432/' + DATABASE,
+    'connection': 'postgres://postgres@localhost:' + PORT + '/' + DATABASE,
     'name': 'cognicity_us',
     'instances': [
       {
