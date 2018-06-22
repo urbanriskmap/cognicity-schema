@@ -33,3 +33,4 @@ CHANGE LOG
 - added sites data for Broward County
 - add note re. ~/.pgpass to README
 - deleted Zears schema
+- deleted watersensors schema
