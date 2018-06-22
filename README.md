@@ -48,7 +48,6 @@ Flood affected area polygon data provided by emergency services via the REM inte
 | qlue | reports | Reports from the government and citizen reporting application Qlue |
 | twitter | invitees | Hashed representation of Twitter users that were automatically contacted by the platform |
 | twitter | seen_tweet_id | Last Tweet processed by the cognicity-reports-powertrack module |
-| zears | reports | Reports collected from the Zurich "ZMap" application |
 
 #### License for Sample Data
 **Indonesia**
