@@ -91,6 +91,8 @@ $ build/run.sh
 ```
 This will create a database, build the empty schema and insert available data.
 
+Note that if a password is set you'll need to use a ~/.pgpass file for the script to run. See more at the PostgreSQL [documentation](https://www.postgresql.org/docs/current/static/libpq-pgpass.html).
+
 
 #### Use of RDS image
 A blank database of the schema is also available as an [RDS](https://aws.amazon.com/rds/) PostgreSQL snapshot in the ap-southeast-1 (Singapore) region, ARN: arn:aws:rds:ap-southeast-1:917524458155:snapshot:cognicity-v3
