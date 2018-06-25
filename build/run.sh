@@ -61,10 +61,6 @@ if [ $SCHEMA == true ]; then
   # Load the qlue reports schema
   psql -h $PGHOST -p $PGPORT -U $PGUSER -d $PGDATABASE -f $(pwd)/schema/reports/qlue/qlue.schema.sql
 
-  echo "Load zears report schema"
-  # Load the zears report schema
-  psql -h $PGHOST -p $PGPORT -U $PGUSER -d $PGDATABASE -f $(pwd)/schema/reports/zears/zears.schema.sql
-
   echo "Load floodgauge reports schema"
   # Load the floodgauge reports schema
   psql -h $PGHOST -p $PGPORT -U $PGUSER -d $PGDATABASE -f $(pwd)/schema/reports/floodgauge/floodgauge.schema.sql
@@ -72,10 +68,6 @@ if [ $SCHEMA == true ]; then
   echo "Load infrastructure schema"
   # Load the pumps, floodgates and waterways infrastructure schema data
   psql -h $PGHOST -p $PGPORT -U $PGUSER -d $PGDATABASE -f $(pwd)/schema/infrastructure/infrastructure.schema.sql
-
-  echo "Load water sensor schema"
-  # Load sensor schema
-  psql -h $PGHOST -p $PGPORT -U $PGUSER -d $PGDATABASE -f $(pwd)/schema/sensors/watersensor.schema.sql
 
   echo "Load new sensors schema"
   # Load sensors schema
@@ -91,7 +83,6 @@ if [ $FUNCTIONS == true ]; then
   psql -h $PGHOST -p $PGPORT -U $PGUSER -d $PGDATABASE -f $(pwd)/schema/reports/grasp/grasp.functions.sql
   psql -h $PGHOST -p $PGPORT -U $PGUSER -d $PGDATABASE -f $(pwd)/schema/reports/detik/detik.functions.sql
   psql -h $PGHOST -p $PGPORT -U $PGUSER -d $PGDATABASE -f $(pwd)/schema/reports/qlue/qlue.functions.sql
-  psql -h $PGHOST -p $PGPORT -U $PGUSER -d $PGDATABASE -f $(pwd)/schema/reports/zears/zears.functions.sql
   psql -h $PGHOST -p $PGPORT -U $PGUSER -d $PGDATABASE -f $(pwd)/schema/reports/floodgauge/floodgauge.functions.sql
 fi
 

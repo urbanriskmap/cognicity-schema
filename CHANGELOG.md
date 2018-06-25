@@ -28,3 +28,9 @@ CHANGE LOG
 - implemented new notification architecture
 - requires cognicity-server v3.0.6 or later
 - handle null instance region codes
+
+### v3.1.0
+- added sites data for Broward County
+- add note re. ~/.pgpass to README
+- deleted Zears schema
+- deleted watersensors schema

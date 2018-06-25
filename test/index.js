@@ -14,7 +14,6 @@ import testTemplateReportSchema from './testTemplateReportSchema';
 import testGRASP from './testGRASP';
 import testDetik from './testDetik';
 import testQlue from './testQlue';
-import testZears from './testZears';
 import testFloodgauge from './testFloodgauge';
 import testREM from './testREM';
 import testVersion from './testVersion';
@@ -152,7 +151,6 @@ for (let i = 0; i < deployment.instances.length; i++) {
   testGRASP(db, instance);
   testDetik(db, instance);
   testQlue(db, instance);
-  testZears(db, instance);
   testFloodgauge(db, instance);
 }
 // Tests run for deployment
