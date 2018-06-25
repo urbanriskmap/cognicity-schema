@@ -30,3 +30,7 @@ CHANGE LOG
 - handle null instance region codes
 
 ### v3.1.0
+- added sites data for Broward County
+- add note re. ~/.pgpass to README
+- deleted Zears schema
+- deleted watersensors schema

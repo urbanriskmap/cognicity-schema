@@ -48,7 +48,6 @@ Flood affected area polygon data provided by emergency services via the REM inte
 | qlue | reports | Reports from the government and citizen reporting application Qlue |
 | twitter | invitees | Hashed representation of Twitter users that were automatically contacted by the platform |
 | twitter | seen_tweet_id | Last Tweet processed by the cognicity-reports-powertrack module |
-| zears | reports | Reports collected from the Zurich "ZMap" application |
 
 #### License for Sample Data
 **Indonesia**
@@ -90,6 +89,8 @@ $ export COUNTRY=indonesia
 $ build/run.sh
 ```
 This will create a database, build the empty schema and insert available data.
+
+Note that if a password is set you'll need to use a ~/.pgpass file for the script to run. See more at the PostgreSQL [documentation](https://www.postgresql.org/docs/current/static/libpq-pgpass.html).
 
 
 #### Use of RDS image
