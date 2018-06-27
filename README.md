@@ -76,7 +76,7 @@ This build `build/run.sh` script looks for the following environment variables:
 - $PGHOST
 - $PGUSER
 - $PGDATABASE
-- $COUNTRY (country for instance)
+- $COUNTRY (two letter country code for instance)
 - $DATA (true | false - whether to load data)
 - $FUNCTIONS (true | false - whether to load schema functions)
 - $SCHEMA (true | false - whether to load schema definitions)
@@ -85,7 +85,7 @@ Country names should match the name specified in the `/data/` folder.
 
 To install the database and load data for specified country run:
 ```sh
-$ export COUNTRY=indonesia
+$ export COUNTRY=id
 $ build/run.sh
 ```
 This will create a database, build the empty schema and insert available data.
@@ -116,7 +116,7 @@ $ npm test
 Instructions to add a new city in cognicity-schema
 * Install the database and load data for specified country run:
 ```sh
-$ export COUNTRY=indonesia
+$ export COUNTRY=id
 $ build/run.sh
 ```
 This will create a database, build the empty schema and insert available data into postgres.
