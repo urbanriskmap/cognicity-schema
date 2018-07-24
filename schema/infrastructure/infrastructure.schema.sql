@@ -44,5 +44,5 @@ CREATE TABLE infrastructure.basins (
     tags json,
     CONSTRAINT basins_pkey PRIMARY KEY (pkey)
 );
-SELECT AddGeometryColumn ('infrastructure','basins','the_geom',4326,'POINT',3);
+SELECT AddGeometryColumn ('infrastructure','basins','the_geom',4326,'POLYGON',3);
 ALTER TABLE infrastructure.basins ALTER COLUMN the_geom SET NOT NULL;
