@@ -117,7 +117,7 @@ let deployments = {
         {
           'name': 'Madhubani',
           'test_instance_region_code': 'mdh', // chn, mum, blr
-          'test_local_area_id': '181', // chn:188, mum:477, blr: 307
+          'test_local_area_id': '803', // chn:188, mum:477, blr: 307
           'test_report_lat': 26.4800, // chn:13.1530, mum:19.0930, blr: 12.9730
           'test_report_lon': 86.2063, // chn:80.2830, mum:72.8630, blr: 77.5630
           'test_report_text': 'report text',
