@@ -9,10 +9,10 @@
     "build": "./build/run.sh",
     "mocha": "mocha --require babel-core/register test/index.js",
     "lint": "eslint --fix test",
-    "test-indonesia": "export COUNTRY=indonesia PGDATABASE=cognicity_test_`date +%s`; npm run build ; npm run mocha; dropdb $PGDATABASE",
-    "test-india": "export COUNTRY=india ; export PGDATABASE=cognicity_test_`date +%s` ; npm run build ; npm run mocha; dropdb $PGDATABASE",
+    "test-in": "export COUNTRY=in ; export PGDATABASE=cognicity_test_`date +%s`; npm run build ; npm run mocha; dropdb $PGDATABASE",
+    "test-id": "export COUNTRY=id ; export PGDATABASE=cognicity_test_`date +%s`; npm run build; npm run mocha; dropdb $PGDATABASE",
     "test-us": "export COUNTRY=us ; export PGDATABASE=cognicity_test_`date +%s` ; npm run build ; npm run mocha; dropdb $PGDATABASE",
-    "test": "npm run lint ; npm run test-indonesia ; npm run test-india; npm run test-us"
+    "test": "npm run lint ; npm run test-id ; npm run test-iiiin; npm run test-us"
   },
   "repository": {
     "type": "git",

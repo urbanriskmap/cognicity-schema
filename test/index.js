@@ -19,7 +19,7 @@ import testREM from './testREM';
 import testVersion from './testVersion';
 
 let deployments = {
-  'indonesia': {
+  'id': {
     'connection': 'postgres://postgres@localhost:' + PORT + '/' + DATABASE,
     'name': 'cognicity_indonesia',
     'instances': [
@@ -74,7 +74,7 @@ let deployments = {
     ],
   },
 
-  'india': {
+  'in': {
     'connection': 'postgres://postgres@localhost:' + PORT + '/' + DATABASE,
     'name': 'cognicity_india',
     'instances': [
