@@ -34,3 +34,5 @@ CHANGE LOG
 - add note re. ~/.pgpass to README
 - deleted Zears schema
 - deleted watersensors schema
+- added waterways and basins data for Broward County, FL
+- deleted old Jakarta infrastructure folder

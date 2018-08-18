@@ -19,7 +19,7 @@ import testREM from './testREM';
 import testVersion from './testVersion';
 
 let deployments = {
-  'indonesia': {
+  'id': {
     'connection': 'postgres://postgres@localhost:' + PORT + '/' + DATABASE,
     'name': 'cognicity_indonesia',
     'instances': [
@@ -74,7 +74,7 @@ let deployments = {
     ],
   },
 
-  'india': {
+  'in': {
     'connection': 'postgres://postgres@localhost:' + PORT + '/' + DATABASE,
     'name': 'cognicity_india',
     'instances': [
@@ -108,6 +108,18 @@ let deployments = {
           'test_local_area_id': '307', // chn:188, mum:477, blr: 307
           'test_report_lat': 12.9730, // chn:13.1530, mum:19.0930, blr: 12.9730
           'test_report_lon': 77.5630, // chn:80.2830, mum:72.8630, blr: 77.5630
+          'test_report_text': 'report text',
+          'test_report_lang': 'en',
+          'test_report_url': 'no_url',
+          'test_card_url': 'abcdefg',
+          'test_card_data': {'water_depth': '100'},
+        },
+        {
+          'name': 'Madhubani',
+          'test_instance_region_code': 'mdh', // chn, mum, blr
+          'test_local_area_id': '803', // chn:188, mum:477, blr: 307
+          'test_report_lat': 26.4800, // chn:13.1530, mum:19.0930, blr: 12.9730
+          'test_report_lon': 86.2063, // chn:80.2830, mum:72.8630, blr: 77.5630
           'test_report_text': 'report text',
           'test_report_lang': 'en',
           'test_report_url': 'no_url',
