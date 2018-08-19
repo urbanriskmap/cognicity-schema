@@ -6,7 +6,7 @@ const pgp = require('pg-promise')({
 
 const DATABASE = process.env['PGDATABASE'] || 'cognicity';
 const COUNTRY = process.env['COUNTRY'];
-const PORT = process.env['PGPORT'] || 5432;
+const PORT = process.env['PGPORT'] || '5432';
 console.log('Testing against ' + DATABASE + ' for ' + COUNTRY);
 
 import testInstanceRegions from './testInstanceRegions.js';
