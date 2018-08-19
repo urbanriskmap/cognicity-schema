@@ -4,9 +4,9 @@ const pgp = require('pg-promise')({
   promiseLib: Promise, // Use bluebird for enhanced Promises
 });
 
-const DATABASE = process.env['PGDATABASE'];
+const DATABASE = process.env['PGDATABASE'] || 'cognicity';
 const COUNTRY = process.env['COUNTRY'];
-const PORT = process.env['PGPORT'];
+const PORT = process.env['PGPORT'] || 5432;
 console.log('Testing against ' + DATABASE + ' for ' + COUNTRY);
 
 import testInstanceRegions from './testInstanceRegions.js';
@@ -106,8 +106,8 @@ let deployments = {
           'name': 'Bangalore',
           'test_instance_region_code': 'blr', // chn, mum, blr
           'test_local_area_id': '307', // chn:188, mum:477, blr: 307
-          'test_report_lat': 12.9730, // chn:13.1530, mum:19.0930, blr: 12.9730
-          'test_report_lon': 77.5630, // chn:80.2830, mum:72.8630, blr: 77.5630
+          'test_report_lat': 12.97013, // chn:13.1530, mum:19.0930, blr: 12.9730
+          'test_report_lon': 77.56427, // chn:80.2830, mum:72.8630, blr: 77.5630
           'test_report_text': 'report text',
           'test_report_lang': 'en',
           'test_report_url': 'no_url',
@@ -116,10 +116,22 @@ let deployments = {
         },
         {
           'name': 'Madhubani',
-          'test_instance_region_code': 'mdh', // chn, mum, blr
+          'test_instance_region_code': 'mdh', // chn, mum, blr, mdh, krl
           'test_local_area_id': '803', // chn:188, mum:477, blr: 307
           'test_report_lat': 26.4800, // chn:13.1530, mum:19.0930, blr: 12.9730
           'test_report_lon': 86.2063, // chn:80.2830, mum:72.8630, blr: 77.5630
+          'test_report_text': 'report text',
+          'test_report_lang': 'en',
+          'test_report_url': 'no_url',
+          'test_card_url': 'abcdefg',
+          'test_card_data': {'water_depth': '100'},
+        },
+        {
+          'name': 'Kerala',
+          'test_instance_region_code': 'krl',
+          'test_local_area_id': '2335',
+          'test_report_lat': 10.8744,
+          'test_report_lon': 76.2763,
           'test_report_text': 'report text',
           'test_report_lang': 'en',
           'test_report_url': 'no_url',
