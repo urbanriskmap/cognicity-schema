@@ -103,7 +103,7 @@ let deployments = {
           'test_card_data': {'water_depth': '100'},
         },
         {
-          'name': 'Bangalore',
+          'name': 'Bengaluru',
           'test_instance_region_code': 'blr', // chn, mum, blr
           'test_local_area_id': '307', // chn:188, mum:477, blr: 307
           'test_report_lat': 12.97013, // chn:13.1530, mum:19.0930, blr: 12.9730
