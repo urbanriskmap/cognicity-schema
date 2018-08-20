@@ -27,7 +27,7 @@ CREATE TABLE outreach.fb_data
 );
 
 -- Add a geometry column
-SELECT AddGeometryColumn('outreach', 'fb_data', 'the_geom', 4326, 'POINT', 2);
+SELECT AddGeometryColumn('outreach', 'fb_data', 'the_geom', 4326, 'POLYGON', 2);
 ALTER TABLE outreach.data ALTER COLUMN the_geom SET NOT NULL;
 
 -- Add a GIST spatial index
