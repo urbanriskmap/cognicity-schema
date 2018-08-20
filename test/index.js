@@ -9,6 +9,7 @@ const COUNTRY = process.env['COUNTRY'];
 const PORT = process.env['PGPORT'] || '5432';
 console.log('Testing against ' + DATABASE + ' for ' + COUNTRY);
 
+import testDiscreteRegions from './testDiscreteRegions.js';
 import testInstanceRegions from './testInstanceRegions.js';
 import testTemplateReportSchema from './testTemplateReportSchema';
 import testGRASP from './testGRASP';
@@ -105,9 +106,9 @@ let deployments = {
         {
           'name': 'Bengaluru',
           'test_instance_region_code': 'blr', // chn, mum, blr
-          'test_local_area_id': '307', // chn:188, mum:477, blr: 307
-          'test_report_lat': 12.97013, // chn:13.1530, mum:19.0930, blr: 12.9730
-          'test_report_lon': 77.56427, // chn:80.2830, mum:72.8630, blr: 77.5630
+          'test_local_area_id': '362', // chn:188, mum:477, blr: 307
+          'test_report_lat': 12.8985, // chn:13.1530, mum:19.0930, blr: 12.9730
+          'test_report_lon': 77.6085, // chn:80.2830, mum:72.8630, blr: 77.5630
           'test_report_text': 'report text',
           'test_report_lang': 'en',
           'test_report_url': 'no_url',
@@ -165,6 +166,9 @@ let deployment = deployments[COUNTRY];
 
 // Database
 let db = pgp(deployment.connection);
+
+// Test if instance regions are discrete geometries
+testDiscreteRegions(db, deployment.instances);
 
 // Tests run for each city in instance
 for (let i = 0; i < deployment.instances.length; i++) {
