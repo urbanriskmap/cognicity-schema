@@ -36,3 +36,4 @@ CHANGE LOG
 - deleted watersensors schema
 - added waterways and basins data for Broward County, FL
 - deleted old Jakarta infrastructure folder
+- added instance regions and local areas for Madhubani, Kerala
