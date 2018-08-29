@@ -5,7 +5,7 @@ CREATE SCHEMA outreach;
 CREATE TABLE outreach.fb_metadata
 (
   id bigserial NOT NULL,
-  fb_id bigint NOT NULL,
+  fb_id bigint NOT NULL UNIQUE,
   created TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now(),
   properties JSONB NOT NULL,
   CONSTRAINT outreach_fb_metadata_pkey PRIMARY KEY (id)
@@ -17,7 +17,7 @@ CREATE TABLE outreach.fb_data
 (
   id bigserial NOT NULL,
   f_key bigint NOT NULL,
-  fb_id bigint NOT NULL,
+  fb_id bigint NOT NULL UNIQUE,
   created TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now(),
   properties JSONB NOT NULL,
   CONSTRAINT outreach_fb_data_pkey PRIMARY KEY (id),
