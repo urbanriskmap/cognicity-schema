@@ -69,9 +69,17 @@ if [ $SCHEMA == true ]; then
   # Load the pumps, floodgates and waterways infrastructure schema data
   psql -h $PGHOST -p $PGPORT -U $PGUSER -d $PGDATABASE -f $(pwd)/schema/infrastructure/infrastructure.schema.sql
 
-  echo "Load new sensors schema"
+  echo "Load water sensor schema"
+  # Load water sensor schema
+  psql -h $PGHOST -p $PGPORT -U $PGUSER -d $PGDATABASE -f $(pwd)/schema/sensors/watersensor.schema.sql
+
+  echo "Load sensors schema"
   # Load sensors schema
   psql -h $PGHOST -p $PGPORT -U $PGUSER -d $PGDATABASE -f $(pwd)/schema/sensors/sensors.schema.sql
+
+  echo "Load outreach schema"
+  # Load outreach schema
+  psql -h $PGHOST -p $PGPORT -U $PGUSER -d $PGDATABASE -f $(pwd)/schema/outreach/outreach.schema.sql
 fi
 
 # Functions loading
