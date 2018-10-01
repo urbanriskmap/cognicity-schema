@@ -37,3 +37,6 @@ CHANGE LOG
 - added waterways and basins data for Broward County, FL
 - deleted old Jakarta infrastructure folder
 - added instance regions and local areas for Madhubani, Kerala
+
+### v3.2.0
+- added outreach schema for fb ads. 
