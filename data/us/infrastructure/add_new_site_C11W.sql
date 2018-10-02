@@ -1,0 +1,1 @@
+INSERT INTO infrastructure.sites (name, tags, the_geom) VALUES ('C11 CANAL WEST OF WESTON RD (WEST OF I75)', '{"instance_region_code":"brw", "site": "C11U75", "basin": "C11"}', '01010000A0E61000001FA2D11D441754C04F292B5D2C103A400000000000000000');
