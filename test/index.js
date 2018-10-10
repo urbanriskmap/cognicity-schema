@@ -157,6 +157,18 @@ let deployments = {
         'test_card_url': 'abcdefg',
         'test_card_data': {'water_depth': '100'},
       },
+      {
+        'name': 'Florida Panhandle',
+        'test_instance_region_code': 'fph',
+        'test_local_area_id': '1701', // East Marion, county code 83
+        'test_report_lat': 29.212,
+        'test_report_lon': -81.814,
+        'test_report_text': 'report text',
+        'test_report_lang': 'en',
+        'test_report_url': 'no_url',
+        'test_card_url': 'abcdefg',
+        'test_card_data': {'water_depth': '100'},
+      },
     ],
   },
 };

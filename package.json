@@ -11,7 +11,7 @@
     "lint": "eslint --fix test",
     "test-in": "export COUNTRY=in ; export PGDATABASE=cognicity_test_`date +%s`; npm run build ; npm run mocha; dropdb $PGDATABASE",
     "test-id": "export COUNTRY=id ; export PGDATABASE=cognicity_test_`date +%s`; npm run build ; npm run mocha; dropdb $PGDATABASE",
-    "test-us": "export COUNTRY=us ; export PGDATABASE=cognicity_test_`date +%s` ; npm run build ; npm run mocha; dropdb $PGDATABASE",
+    "test-us": "export COUNTRY=us ; export PGDATABASE=cognicity_test_`date +%s` ; npm run build ; npm run mocha;# dropdb $PGDATABASE",
     "test": "npm run lint ; npm run test-id ; npm run test-in; npm run test-us"
   },
   "repository": {
