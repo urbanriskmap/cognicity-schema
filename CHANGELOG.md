@@ -39,5 +39,6 @@ CHANGE LOG
 - added instance regions and local areas for Madhubani, Kerala
 
 ### v3.2.0
-- added outreach schema for fb ads.
-- added C11 West SFWMD site for Broward.
+- added outreach schema for fb ads
+- added C11 West SFWMD site for Broward
+- added local areas and instance region data for Florida Panhandle
